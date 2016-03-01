@@ -1,0 +1,3 @@
+rootProject.name = 'webpersonal'
+
+include 'webpersonal-flickr'
