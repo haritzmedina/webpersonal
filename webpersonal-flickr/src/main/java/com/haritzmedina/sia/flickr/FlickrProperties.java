@@ -10,9 +10,9 @@ import java.util.Properties;
 public class FlickrProperties {
 
     private static String FILE_NAME = "flickr.properties";
-    private Properties properties;
+    private static Properties properties;
 
-    public FlickrProperties(){
+    public void load(){
         InputStream in = getClass().getClassLoader().getResourceAsStream(FILE_NAME);
         this.properties = new Properties();
         try {
@@ -22,7 +22,7 @@ public class FlickrProperties {
         }
     }
 
-    public String getApiKey(){
-        return this.properties.getProperty("flickr.api_key");
+    public static String getApiKey(){
+        return properties.getProperty("flickr.api_key");
     }
 }
