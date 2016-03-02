@@ -4,7 +4,8 @@ package com.haritzmedina.sia.flickr;
  * Created by Haritz Medina on 01/03/2016.
  */
 
-import java.io.IOException;
+import com.haritzmedina.sia.utils.RestCall;
+
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.util.Hashtable;
@@ -51,7 +52,7 @@ public class Authorization {
     }
 
     private String removeTags(String token, String api_key, String secret, String tag_id) {
-        Map<String, String> params=new Hashtable<String, String>();
+        Map<String, String> params= new TreeMap<>();
         String api_sig;
         try {
             api_sig = MD5(secret+"api_key"+api_key+"auth_token"+token+"methodflickr.photos.removeTag"+"tag_id"+tag_id);

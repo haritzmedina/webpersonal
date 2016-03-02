@@ -1,3 +1,10 @@
 rootProject.name = 'webpersonal'
 
 include 'webpersonal-flickr'
+
+include 'webpersonal-utils'
+
+include 'webpersonal-delicious'
+include 'webpersonal-yahoo'
+include 'webpersonal-twitter'
+

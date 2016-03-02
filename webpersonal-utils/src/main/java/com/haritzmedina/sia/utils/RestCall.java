@@ -1,4 +1,4 @@
-package com.haritzmedina.sia.flickr;
+package com.haritzmedina.sia.utils;
 
 import java.io.*;
 import java.util.*;

@@ -2,5 +2,5 @@ group 'com.haritzmedina.sia'
 version '1.0-SNAPSHOT'
 
 dependencies {
-    compile project (':webpersonal-utils')
+    compile project(':webpersonal-utils')
 }

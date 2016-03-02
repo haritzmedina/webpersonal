@@ -1,4 +1,12 @@
-package com.haritzmedina.sia.flickr;
+package com.haritzmedina.sia.delicious;
+
+/**
+ * Created by Haritz Medina on 02/03/2016.
+ */
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,9 +15,9 @@ import java.util.Properties;
 /**
  * Created by Haritz Medina on 01/03/2016.
  */
-public class FlickrProperties {
+public class DeliciousProperties {
 
-    private static String FILE_NAME = "flickr.properties";
+    private static String FILE_NAME = "delicious.properties";
     private static Properties properties;
 
     public void load(){
@@ -22,14 +30,10 @@ public class FlickrProperties {
         }
     }
 
-    public static String getApiKey(){
-        return properties.getProperty("flickr.api_key");
+    public String getPassword(){
+        return properties.getProperty("delicious.username");
     }
-
-    public static String getToken(){
-        return properties.getProperty("flickr.token");
-    }
-    public static String getSecret(){
-        return properties.getProperty("flickr.secret");
+    public String getUsername(){
+        return properties.getProperty("delicious.password");
     }
 }

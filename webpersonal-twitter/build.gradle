@@ -1,0 +1,7 @@
+group 'com.haritzmedina.sia'
+version '1.0-SNAPSHOT'
+
+dependencies {
+    compile('org.twitter4j:twitter4j-core:4.0.4')
+    compile project(':webpersonal-utils')
+}
