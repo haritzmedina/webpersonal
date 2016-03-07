@@ -7,4 +7,5 @@ include 'webpersonal-utils'
 include 'webpersonal-delicious'
 include 'webpersonal-yahoo'
 include 'webpersonal-twitter'
+include 'webpersonal-yql'
 

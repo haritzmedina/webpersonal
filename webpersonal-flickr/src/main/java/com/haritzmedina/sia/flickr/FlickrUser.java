@@ -1,5 +1,11 @@
 package com.haritzmedina.sia.flickr;
 
+import com.haritzmedina.sia.utils.XpathUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathFactory;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -9,15 +15,21 @@ import java.util.TreeMap;
  */
 public class FlickrUser {
     public static String getUserIdByName(String username, String apiKey, String token, String secret){
-        Map<String, String> params = new TreeMap<>();
+        TreeMap<String, String> params = new TreeMap<>();
         params.put("api_key",apiKey);
         params.put("method","flickr.people.findByUsername");
         params.put("username", username);
         params.put("auth_token", token);
 
         FlickrRequest flickrRequest = new FlickrRequest(secret);
-        flickrRequest.executeRequest(params);
-        // TODO Xpath extract userid
-        return null;
+        Document response = flickrRequest.executeRequest(params);
+        // Xpath extract userid
+        Node id = (Node)XpathUtil.extractXpath(response, "//user/@id");
+        if(id!=null){
+            return id.getNodeValue();
+        }
+        else{
+            return null;
+        }
     }
 }
