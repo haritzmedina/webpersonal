@@ -58,8 +58,8 @@ public class RestCall {
             ((HttpURLConnection)urlc).setRequestProperty(entry.getKey(), entry.getValue());
         }
         urlc.setAllowUserInteraction(false);
-        System.out.println("los parametros post son:");
-        System.out.println(((HttpURLConnection)urlc).getHeaderFields().toString());
+        //System.out.println("los parametros post son:");
+        //System.out.println(((HttpURLConnection)urlc).getHeaderFields().toString());
         // retrieve result
         BufferedReader br = new BufferedReader(new InputStreamReader(urlc.getInputStream(), "UTF-8"));
         StringBuilder sb = new StringBuilder();
@@ -80,15 +80,15 @@ public class RestCall {
             curl=curl+"?"+query;
         }
         URL url = new URL(curl);
-        System.out.println("la url es:");
-        System.out.println(url.toString());
+        //System.out.println("la url es:");
+        System.out.println("Called URI: "+url.toString());
 
         // make post mode connection
         HttpsURLConnection urlc = (HttpsURLConnection)url.openConnection();
 
         urlc.setAllowUserInteraction(false);
 
-        System.out.println((urlc).getHeaderFields().toString());
+        //System.out.println((urlc).getHeaderFields().toString());
         // retrieve result
         BufferedReader br = new BufferedReader(new InputStreamReader(urlc.getInputStream(), "UTF-8"));
         StringBuilder sb = new StringBuilder();

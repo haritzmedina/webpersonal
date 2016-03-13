@@ -243,7 +243,7 @@ public class Authorization {
         return buf.toString();
     }
 
-    public  String MD5(String text)
+    public String MD5(String text)
             throws NoSuchAlgorithmException  {
         MessageDigest md;
         md = MessageDigest.getInstance("MD5");

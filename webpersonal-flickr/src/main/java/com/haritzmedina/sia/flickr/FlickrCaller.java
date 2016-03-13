@@ -26,11 +26,11 @@ public class FlickrCaller {
 
         FlickrCaller fc=new FlickrCaller();
         init();
-        fc.getPhotosv1();
+        fc.getPhotosv2();
     }
 
     private static void init() {
-        flickrProperties = new FlickrProperties();
+        FlickrProperties.load("properties/flickr.properties");
     }
 
     public void getPhotosv1() throws Exception {
@@ -49,8 +49,8 @@ public class FlickrCaller {
     public void getPhotosv2() throws Exception {
         createDocumentBuilder();
         createXpathFactory();
-        String address="http://api.flickr.com/services/rest/?method=flickr.photos.search&";
-        address=address+"user_id=40622837@N04&api_key= TuapiKey";
+        String address="https://api.flickr.com/services/rest/?method=flickr.photos.search&";
+        address=address+"user_id=40622837@N04&api_key="+flickrProperties.getApiKey();
 
         URL url = new URL(address);
 
