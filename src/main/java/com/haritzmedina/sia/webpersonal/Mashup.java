@@ -14,6 +14,7 @@ import twitter4j.TwitterException;
 import java.util.List;
 
 /**
+ * Mashup main application
  * Created by Haritz Medina on 03/03/2016.
  */
 public class Mashup {
@@ -44,6 +45,7 @@ public class Mashup {
         // STEP 2: Post on delicious
         DeliciousProperties.load(DELICIOUS_PROPERTIES_FILE);
         photos.forEach((photo) -> {
+            // Call delicious link adder
             DeliciousLinkCaller.postURI(
                     photo.getPhotoURI(),
                     "Photo named "+photo.getTitle()+" shared.",

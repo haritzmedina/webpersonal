@@ -9,7 +9,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class RestCall {
 
     public static String buildWebQuery(Map<String, String> parameters) throws Exception {
-        String res=null;
+        String res;
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : parameters.entrySet()) {
             String key = URLEncoder.encode(entry.getKey(), "UTF-8");
@@ -17,16 +17,16 @@ public class RestCall {
             sb.append(key).append("=").append(value).append("&");
         }
         if(sb.length()>0){
-            res=sb.toString().substring(0, sb.length() - 1);
+            res = sb.toString().substring(0, sb.length() - 1);
         }else{
-            res=sb.toString();
+            res = sb.toString();
         }
         return res;
     }
 
     public static Map<String, String> parseWebResult(String parameters) throws Exception {
         StringTokenizer amp = new StringTokenizer(parameters,"&");
-        Map<String, String> res=new Hashtable<String, String>();
+        Map<String, String> res= new Hashtable<>();
         while (amp.hasMoreTokens()) {
             String paramVal=amp.nextToken();
             int ind = paramVal.indexOf("=");
@@ -39,7 +39,7 @@ public class RestCall {
 
 
     public String callRestfulWebService(String address, Map<String, String> parameters) throws Exception {
-        return callRestfulWebService(address,parameters,new Hashtable<String,String>());
+        return callRestfulWebService(address,parameters, new Hashtable<>());
     }
 
     public String callRestfulWebService(String address, Map<String, String> parameters,Map<String, String> header) throws Exception {
@@ -55,11 +55,11 @@ public class RestCall {
         // make post mode connection
         URLConnection urlc = url.openConnection();
         for (Map.Entry<String, String> entry : header.entrySet()) {
-            ((HttpURLConnection)urlc).setRequestProperty(entry.getKey(), entry.getValue());
+            urlc.setRequestProperty(entry.getKey(), entry.getValue());
         }
         urlc.setAllowUserInteraction(false);
         //System.out.println("los parametros post son:");
-        System.out.println(((HttpURLConnection)urlc).getHeaderFields().toString());
+        System.out.println(urlc.getHeaderFields().toString());
         // retrieve result
         BufferedReader br = new BufferedReader(new InputStreamReader(urlc.getInputStream(), "UTF-8"));
         StringBuilder sb = new StringBuilder();

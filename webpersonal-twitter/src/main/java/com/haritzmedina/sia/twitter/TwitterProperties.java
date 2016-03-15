@@ -1,17 +1,15 @@
 package com.haritzmedina.sia.twitter;
 
-/**
- * Created by Haritz Medina on 02/03/2016.
- */
-
 import com.haritzmedina.sia.utils.PropertiesFileReader;
 
 import java.io.*;
 import java.util.Properties;
 
 /**
- * Created by Haritz Medina on 01/03/2016.
+ * Twitter properties container
+ * Created by Haritz Medina on 02/03/2016.
  */
+
 public class TwitterProperties {
 
     private static Properties properties;

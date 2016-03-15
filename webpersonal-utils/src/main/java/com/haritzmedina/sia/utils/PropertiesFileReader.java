@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.Properties;
 
 /**
+ * Properties file reader
  * Created by Haritz Medina on 15/03/2016.
  */
 public class PropertiesFileReader {
@@ -14,7 +15,7 @@ public class PropertiesFileReader {
             in = new FileInputStream(new File(filePath));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        };
+        }
         // Load properties from stream
         Properties properties = new Properties();
         try {

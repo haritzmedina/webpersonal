@@ -9,6 +9,7 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 /**
+ * Xpath utils functions
  * Created by Haritz Medina on 03/03/2016.
  */
 public class XpathUtil {

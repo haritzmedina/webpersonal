@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
+ * User access token request class
  * Created by Haritz Medina on 15/03/2016.
  */
 public class TwitterRequestToken {
