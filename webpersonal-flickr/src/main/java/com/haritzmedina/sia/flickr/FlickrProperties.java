@@ -1,5 +1,7 @@
 package com.haritzmedina.sia.flickr;
 
+import com.haritzmedina.sia.utils.PropertiesFileReader;
+
 import java.io.*;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -12,20 +14,7 @@ public class FlickrProperties {
     private static Properties properties;
 
     public static void load(String filePath){
-        // Open file input stream
-        InputStream in = null;
-        try {
-            in = new FileInputStream(new File(filePath));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        };
-        // Load properties from stream
-        FlickrProperties.properties = new Properties();
-        try {
-            FlickrProperties.properties.load(in);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        FlickrProperties.properties = PropertiesFileReader.load(filePath);
     }
 
     public static String getApiKey(){

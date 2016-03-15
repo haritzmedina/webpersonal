@@ -4,6 +4,8 @@ package com.haritzmedina.sia.twitter;
  * Created by Haritz Medina on 02/03/2016.
  */
 
+import com.haritzmedina.sia.utils.PropertiesFileReader;
+
 import java.io.*;
 import java.util.Properties;
 
@@ -15,20 +17,7 @@ public class TwitterProperties {
     private static Properties properties;
 
     public static void load(String filePath){
-        // Open file input stream
-        InputStream in = null;
-        try {
-            in = new FileInputStream(new File(filePath));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        };
-        // Load properties from stream
-        TwitterProperties.properties = new Properties();
-        try {
-            TwitterProperties.properties.load(in);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        TwitterProperties.properties = PropertiesFileReader.load(filePath);
     }
 
     public static String getAppKey(){
