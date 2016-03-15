@@ -70,5 +70,5 @@ hs_err_pid*
 
 # Created by .ignore support plugin (hsz.mobi)
 
-# Flickr Properties
-properties/flickr.properties
+# Properties files
+properties/*.properties
