@@ -7,6 +7,9 @@ import com.haritzmedina.sia.flickr.caller.FlickrPhotoCaller;
 import com.haritzmedina.sia.flickr.FlickrProperties;
 import com.haritzmedina.sia.flickr.domain.FlickrPhoto;
 import com.haritzmedina.sia.flickr.domain.FlickrUser;
+import com.haritzmedina.sia.twitter.TwitterProperties;
+import com.haritzmedina.sia.twitter.TwitterRequest;
+import twitter4j.TwitterException;
 
 import java.util.List;
 
@@ -17,7 +20,7 @@ public class Mashup {
 
     private static String DELICIOUS_PROPERTIES_FILE = "properties/delicious.properties";
     private static String FLICKR_PROPERTIES_FILE = "properties/flickr.properties";
-    private static String TWITTER_PROPERTIES_FILE = "twitter.properties";
+    private static String TWITTER_PROPERTIES_FILE = "properties/twitter.properties";
 
     private static String FLICKR_USERNAME = "haritzmedina";
     private static String FLICKR_TAG_TO_PROCESS = "publish";
@@ -51,6 +54,21 @@ public class Mashup {
         });
 
         // STEP 3: Share tweet on twitter
+        TwitterProperties.load(TWITTER_PROPERTIES_FILE);
+        TwitterRequest twitterRequest = new TwitterRequest(
+                TwitterProperties.getAppKey(),
+                TwitterProperties.getAppSecret()
+        );
+        photos.forEach((photo) -> {
+            try {
+                twitterRequest.updateStatus(
+                        "Flickr photo uploaded: "+photo.getPhotoURI(),
+                        TwitterProperties.getUserToken(),
+                        TwitterProperties.getUserSecret());
+            } catch (TwitterException e) {
+                e.printStackTrace();
+            }
+        });
 
         // STEP 4: Set flickr photos as shared
         photos.forEach((photo) -> {

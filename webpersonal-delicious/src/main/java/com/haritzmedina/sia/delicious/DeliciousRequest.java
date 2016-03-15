@@ -10,8 +10,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.StringReader;
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -34,12 +32,6 @@ public class DeliciousRequest {
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
-
-        /*Authenticator.setDefault(new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication (username, password.toCharArray());
-            }
-        });*/
     }
 
     public Document executeRequest(TreeMap<String, String> params){
@@ -60,7 +52,7 @@ public class DeliciousRequest {
         if(response_string==null){
             return null;
         }
-        System.out.println(response_string);
+
         // Retrieve xml document from response string
         Document response = null;
         try {

@@ -23,4 +23,5 @@ subprojects{
 dependencies{
     compile project (':webpersonal-flickr')
     compile project (':webpersonal-delicious')
+    compile project (':webpersonal-twitter')
 }
