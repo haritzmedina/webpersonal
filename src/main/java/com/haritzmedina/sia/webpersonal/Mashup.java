@@ -1,6 +1,8 @@
 package com.haritzmedina.sia.webpersonal;
 
 
+import com.haritzmedina.sia.delicious.DeliciousProperties;
+import com.haritzmedina.sia.delicious.caller.DeliciousLinkCaller;
 import com.haritzmedina.sia.flickr.caller.FlickrPhotoCaller;
 import com.haritzmedina.sia.flickr.FlickrProperties;
 import com.haritzmedina.sia.flickr.domain.FlickrPhoto;
@@ -13,7 +15,7 @@ import java.util.List;
  */
 public class Mashup {
 
-    private static String DELICIOUS_PROPERTIES_FILE = "delicious.properties";
+    private static String DELICIOUS_PROPERTIES_FILE = "properties/delicious.properties";
     private static String FLICKR_PROPERTIES_FILE = "properties/flickr.properties";
     private static String TWITTER_PROPERTIES_FILE = "twitter.properties";
 
@@ -37,7 +39,16 @@ public class Mashup {
         );
 
         // STEP 2: Post on delicious
-
+        DeliciousProperties.load(DELICIOUS_PROPERTIES_FILE);
+        photos.forEach((photo) -> {
+            DeliciousLinkCaller.postURI(
+                    photo.getPhotoURI(),
+                    "Photo named "+photo.getTitle()+" shared.",
+                    "shared,photo",
+                    DeliciousProperties.getUsername(),
+                    DeliciousProperties.getPassword()
+                    );
+        });
 
         // STEP 3: Share tweet on twitter
 

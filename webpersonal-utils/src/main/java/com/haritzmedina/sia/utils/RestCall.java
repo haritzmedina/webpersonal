@@ -59,7 +59,7 @@ public class RestCall {
         }
         urlc.setAllowUserInteraction(false);
         //System.out.println("los parametros post son:");
-        //System.out.println(((HttpURLConnection)urlc).getHeaderFields().toString());
+        System.out.println(((HttpURLConnection)urlc).getHeaderFields().toString());
         // retrieve result
         BufferedReader br = new BufferedReader(new InputStreamReader(urlc.getInputStream(), "UTF-8"));
         StringBuilder sb = new StringBuilder();

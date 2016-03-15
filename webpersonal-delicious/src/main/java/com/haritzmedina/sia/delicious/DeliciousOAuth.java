@@ -28,7 +28,7 @@ public class DeliciousOAuth {
     public static void main(String[] args) throws Exception {
 
         DeliciousOAuth dc=new DeliciousOAuth();
-        dc.getPhotosv3();
+        dc.getPhotosv4();
     }
     //https://delicious.com/auth/authorize?client_id=4d92932e794906911d393897f80300b2&redirect_uri=localhost
 

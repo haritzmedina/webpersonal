@@ -22,11 +22,9 @@ import java.util.TreeMap;
  */
 public class FlickrRequest {
     private DocumentBuilder docBuilder = null;
-    private Map params;
     private String secret;
 
     public FlickrRequest(String secret){
-        this.params = params;
         this.secret = secret;
         DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
         try {
